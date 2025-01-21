@@ -1,4 +1,3 @@
-import './App.css'
 import LogsTemplate from './components/templates/LogsTemplate'
 
 function App() {
