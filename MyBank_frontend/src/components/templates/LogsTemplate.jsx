@@ -1,11 +1,16 @@
 import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { setLoginValue } from '../../stores/slices/loginSlice';
 import LoginForm from "../organisms/LoginForm";
 import Button from "../atoms/Button";
 import Logo from "../atoms/Logo";
 import BackLogo from '../atoms/BackLogo';
 
 const LogsTemplate = () => {
+    const dispatch = useDispatch()
     const [title, setTitle] = React.useState('Sign in');
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
     const handleRegister = () => {
         console.log("Registering !");
@@ -19,6 +24,8 @@ const LogsTemplate = () => {
 
     const handleLog = () => {
         console.log('Logging in...');
+        const logs = { username, password };
+        dispatch(setLoginValue(logs));
     }
 
     // TODO : ADD FORGOT PASSWORD SYSTEM
@@ -34,7 +41,11 @@ const LogsTemplate = () => {
                     <h1 className="text-2xl font-bold -mt-16 md:Montserrat">My Bank</h1>
                 </div>
                 <div className="mt-8">
-                    < LoginForm title={title} />
+                    <LoginForm 
+                        title={title} 
+                        setUsername={setUsername} 
+                        setPassword={setPassword} 
+                    />
 
                     { title === "Sign in" ?
                         <>
