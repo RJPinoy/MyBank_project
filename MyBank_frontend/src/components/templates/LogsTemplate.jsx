@@ -17,6 +17,11 @@ const LogsTemplate = () => {
         setTitle('Sign in');
     }
 
+    const handleLog = () => {
+        console.log('Logging in...');
+    }
+
+    // TODO : ADD FORGOT PASSWORD SYSTEM
     const handleForgot = () => {
         console.log("Forgot my password ?");
     }
@@ -32,15 +37,22 @@ const LogsTemplate = () => {
                     < LoginForm title={title} />
 
                     { title === "Sign in" ?
-                        <div className="flex justify-between">
-                            <Button label="Register" handleClick={() => handleRegister()} />
-                            <Button label="Forgot my password ?" handleClick={() => handleForgot()} />
-                        </div>
+                        <>
+                            <div className="flex justify-between w-full">
+                                <Button label="Register" handleClick={() => handleRegister()} />
+                                <Button label="Forgot my password ?" handleClick={() => handleForgot()} />
+                            </div>
+                            <div className='flex justify-center'>
+                                <button className='m-2 p-2' onClick={() => handleLog()}>{title}</button>
+                            </div>
+                        </>
                         :
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-center w-full">
                             <BackLogo handleClick={() => handleBack()} />
+                            <button className='m-2 p-2' onClick={() => handleLog()}>{title}</button>
                         </div>
                     }
+                    
                 </div>
             </div>
         </>
