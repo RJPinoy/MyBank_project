@@ -2,7 +2,7 @@ import * as React from 'react';
 import LoginForm from "../organisms/LoginForm";
 import Button from "../atoms/Button";
 import Logo from "../atoms/Logo";
-import backLogo from '../../assets/back.svg';
+import BackLogo from '../atoms/BackLogo';
 
 const LogsTemplate = () => {
     const [title, setTitle] = React.useState('Sign in');
@@ -38,8 +38,7 @@ const LogsTemplate = () => {
                         </div>
                         :
                         <div className="flex justify-between">
-                            <img id='backlogo' src={backLogo} alt="Back Logo" className="w-10 aspect-square" />
-                            <Button label="back" handleClick={() => handleBack()} />
+                            <BackLogo handleClick={() => handleBack()} />
                         </div>
                     }
                 </div>
