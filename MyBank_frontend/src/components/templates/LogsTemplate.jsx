@@ -23,9 +23,9 @@ const LogsTemplate = () => {
     }
 
     const handleLog = () => {
-        console.log('Logging in...');
         const logs = { username, password };
         dispatch(setLoginValue(logs));
+        console.log('Logging in...', logs);
     }
 
     // TODO : ADD FORGOT PASSWORD SYSTEM
@@ -54,13 +54,13 @@ const LogsTemplate = () => {
                                 <Button label="Forgot my password ?" handleClick={() => handleForgot()} />
                             </div>
                             <div className='flex justify-center'>
-                                <button className='m-2 p-2' onClick={() => handleLog()}>{title}</button>
+                                <button className='mt-5 m-2 p-2 rounded-md bg-mybank-green text-mybank-darkblue border border-mybank-darkblue hover:bg-mybank-darkblue hover:text-mybank-green hover:border-mybank-green transition duration-200 ease-in-out' onClick={() => handleLog()}>{title}</button>
                             </div>
                         </>
                         :
                         <div className="flex justify-between items-center w-full">
                             <BackLogo handleClick={() => handleBack()} />
-                            <button className='m-2 p-2' onClick={() => handleLog()}>{title}</button>
+                            <button className='mt-5 m-2 p-2 rounded-md bg-mybank-green text-mybank-darkblue border border-mybank-darkblue hover:bg-mybank-darkblue hover:text-mybank-green hover:border-mybank-green transition duration-200 ease-in-out' onClick={() => handleLog()}>{title}</button>
                         </div>
                     }
                     
