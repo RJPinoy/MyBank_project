@@ -34,9 +34,9 @@ pipeline {
 
 Documentation of the base image : https://hub.docker.com/r/jenkins/inbound-agent
 
-docker build . -t jenkins_agent_symfony
+docker build . -t <your_image_name>
 
-docker run --name jenkins_agent_symfony_container --init jenkins_agent_symfony -url http://<IPAdresse_of_jenkins_master>:8080 <password> <node_name>
+docker run --name <your_container_name> --init <your_image_name> -url http://<IPAdresse_of_jenkins_master>:8080 <password> <node_name>
 
 To get the <IPAdresse_of_jenkins_master>, make this command :
 docker inspect jenkins_master_container
