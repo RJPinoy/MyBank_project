@@ -61,16 +61,29 @@ Modify the pipeline script :
 
 ```
 pipeline {
-    agent {
-        node {
-            label '<agent_name>'
-        }
-    }
-
+    agent none  // No default agent
+    
     stages {
-        stage('CI') {
+        stage('Backend CI') {
+            agent { label 'Jenkins agent composer' }
             steps {
                 git 'https://github.com/RJPinoy/MyBank_project.git'
+                sh '''
+                    cd MyBank_backend
+                    composer install
+                    php bin/phpunit
+                '''
+            }
+        }
+
+        stage('Frontend CI') {
+            agent { label 'Jenkins agent node' }
+            steps {
+                git 'https://github.com/RJPinoy/MyBank_project.git'
+                sh '''
+                    cd MyBank_frontend
+                    npm install
+                '''
             }
         }
     }
